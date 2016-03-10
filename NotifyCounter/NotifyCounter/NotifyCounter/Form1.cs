@@ -132,21 +132,20 @@ namespace NotifyCounter
 
         private string getStringDay(int eNumber)
         {
-            var str = String.Empty;
-            var number = eNumber % 10;
-            if(number >= 11 && number <= 19)
+            var str = "дней";
+            if(!(eNumber >= 11 && eNumber <= 19))
             {
-                str = "дней";
-            }
-            else
-            {
-                switch(number % 10)
+                var number = eNumber % 10;
+                if (!(number >= 11 && number <= 19))
                 {
-                    case 1: str = "день"; break;
-                    case 2:
-                    case 3:
-                    case 4: str = "дня"; break;
-                    default: str = "дней"; break;
+                    switch (number % 10)
+                    {
+                        case 1: str = "день"; break;
+                        case 2:
+                        case 3:
+                        case 4: str = "дня"; break;
+                        default: str = "дней"; break;
+                    }
                 }
             }
 
